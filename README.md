@@ -43,11 +43,14 @@ Zauważmy, że sąsiednie kropki nie będą stosowane w reprezentacji planszy, p
 
 **Program powinien reagować na następujące komendy:**
 **LOAD_GAME_BOARD** po której podawane są parametry gry oraz stan planszy. Przykładowo, wczytanie oryginalnej planszy będzie wyglądało następująco:
+
 <img width="130" alt="Screenshot 2024-09-25 at 13 40 32" src="https://github.com/user-attachments/assets/b7422f53-00c3-4829-b23e-91df75b19775">
+
 Należy sprawdzić czy podany stan planszy jest poprawny, czy suma pionów obydwu graczy na planszy i w rezerwach jest poprawna, czyli identyczna z podaną w liście L. Należy sprawdzić czy nie zapomnieliśmy usunąć ciągów pionów, które spełnią kryterium wyzwalające ich zbieranie.
 
 **PRINT_GAME_BOARD** drukuje aktualny stan planszy, po wczytaniu gry powinien to być dokładnie ten sam wydruk który został przekazany podczas wczytywania. Oczywiście zakładając, że był on poprawny.
 **DO_MOVE <xN - yM>** wykonuje przekazany ruch dla aktywnego gracza na aktualnej planszy. Notacja posunięć powinna być zgodna z tą z programu Gipf for One (GF1) W przypadku gdy będzie on poprawny otrzymamy nową planszę a aktywny gracz zmieni się na przeciwnika. Może okazać się, że gra się zakończy jeśli przeciwnik nie będzie miał już pionów w rezerwie. W przypadku gdy ruch będzie niepoprawny należy ustalić odpowiedni stan gry, czyli "bad_move" oraz zapamiętać gracza i ruch które ten stan wywołały. W przypadku kiedy gracz musi zdjąć piony z planszy a istnieje kilka takich możliwości, musi on zadecydować które piony chce zdjąć. Ta informacja musi zostać dodana do komendy w postaci współrzędnych tych pionów. Współrzędne pionów są podawane wg schematu opisanego przykładem początkowej planszy dla standardowej wesji gry:
+
 <img width="224" alt="Screenshot 2024-09-25 at 13 41 18" src="https://github.com/user-attachments/assets/5421e82e-9ca6-4cff-a988-69a8334b4a66">
 
 Zatem w przypadku ruchu który doprowadzi do niejednoznacznej sytuacji wymagającej dookreślenie które piony trzeba zdjąć. Po "normalnym" rozkazie podawany jest kolor gracza którego dotyczy wybór a nastepnie ciąg współrzędnych określających zdejmowane piony. Rozkaz będzie wyglądał nastepująco:
